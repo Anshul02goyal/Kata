@@ -12,4 +12,12 @@ export class Library {
     addBook(book: Book): void{
         this.books.push({ ...book, isAvailable: true});
     }
+
+    borrowBook(ISBN: string): void{
+        const book = this.books.find(book => book.ISBN === ISBN && book.isAvailable);
+        if(!book){
+            throw new Error("Book not available");
+        }
+        book.isAvailable = false;
+    }
 }
