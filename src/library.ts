@@ -20,4 +20,12 @@ export class Library {
         }
         book.isAvailable = false;
     }
+
+    returnBook(ISBN: string): void{
+        const book = this.books.find(book => book.ISBN === ISBN && !book.isAvailable);
+        if(!book){
+            throw new Error("Book not found or already available");
+        }
+        book.isAvailable = true;
+    }
 }
