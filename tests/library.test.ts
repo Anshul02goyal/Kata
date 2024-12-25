@@ -17,7 +17,7 @@ describe("Library Management System", () => {
 
     library.addBook(book);
 
-    expect(library.viewAvailbleBooks()).toEqual([
+    expect(library.viewAvailableBooks()).toEqual([
       { ...book, isAvailable: true },
     ]);
   });

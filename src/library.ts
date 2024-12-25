@@ -28,4 +28,8 @@ export class Library {
         }
         book.isAvailable = true;
     }
+
+    viewAvailableBooks(): Book[]{
+        return this.books.filter(book => book.isAvailable);
+    }
 }
