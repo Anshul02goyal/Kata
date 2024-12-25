@@ -1,9 +1,11 @@
 {
   "name": "library-management-system",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/library.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build":"tsc",
+    "test": "jest",
+    "start": "node dist/library.js"
   },
   "keywords": [],
   "author": "",
