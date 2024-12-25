@@ -20,14 +20,20 @@ export class Library {
         if(!book){
             throw new Error("Book not available");
         }
+        if(!book.isAvailable){
+            throw new Error('Book is already borrowed');
+        }
         book.isAvailable = false;
     }
 
     // Return a borrowed book by ISBN
     returnBook(ISBN: string): void{
-        const book = this.books.find(book => book.ISBN === ISBN && !book.isAvailable);
+        const book = this.books.find(book => book.ISBN === ISBN);
         if(!book){
-            throw new Error("Book not found or already available");
+            throw new Error("Book not found");
+        }
+        if(book.isAvailable){
+            throw new Error("Book was not borrowed")
         }
         book.isAvailable = true;
     }
