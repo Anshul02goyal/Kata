@@ -34,4 +34,20 @@ describe("Library Management System", () =>{
         expect(() => library.borrowBook("9999")).toThrow("Book not available");
     });
 
+    test("should return a borrowed book", () =>{
+        const book: Book = {
+            ISBN: "123456",
+            title: "The Hobbit",
+            author: "Tolkien",
+            publicationYear: 1937
+        };
+
+        library.addBook(book);
+        library.borrowBook("123456");
+        library.returnBook("123456");
+    });
+
+    test("should throw an error if returning a book that is not borrowed", () =>{
+        expect(() => library.returnBook("1234")).toThrow("Book not found or already available");
+    })
 })
