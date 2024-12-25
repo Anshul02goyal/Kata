@@ -75,3 +75,8 @@ This project uses Jest for unit testing.
    ```bash
    git push origin feature-name
 5. Open a pull request.
+
+---
+
+## Test Report
+Open **coverage/lcov-report/index.html** file in browser.
