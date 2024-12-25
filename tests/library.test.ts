@@ -7,6 +7,7 @@ describe("Library Management System", () => {
     library = new Library();
   });
 
+  // tests the add book feature
   test("should add a new book to the library", () => {
     const book: Book = {
       ISBN: "123456",
@@ -22,6 +23,7 @@ describe("Library Management System", () => {
     ]);
   });
 
+  // tests the borrow book feature
   test("should borrow an available book", () => {
     const book: Book = {
       ISBN: "123456",
@@ -40,6 +42,7 @@ describe("Library Management System", () => {
     expect(() => library.borrowBook("9999")).toThrow("Book not available");
   });
 
+  // tests the return borrowed book feature
   test("should return a borrowed book", () => {
     const book: Book = {
       ISBN: "123456",

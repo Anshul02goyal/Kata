@@ -9,10 +9,12 @@ export interface Book {
 export class Library {
     private books: Book[] = [];
 
+    // Add a new book to the library
     addBook(book: Book): void{
         this.books.push({ ...book, isAvailable: true});
     }
 
+    // Borrow a book based on ISBN
     borrowBook(ISBN: string): void{
         const book = this.books.find(book => book.ISBN === ISBN && book.isAvailable);
         if(!book){
@@ -21,6 +23,7 @@ export class Library {
         book.isAvailable = false;
     }
 
+    // Return a borrowed book by ISBN
     returnBook(ISBN: string): void{
         const book = this.books.find(book => book.ISBN === ISBN && !book.isAvailable);
         if(!book){
@@ -29,6 +32,7 @@ export class Library {
         book.isAvailable = true;
     }
 
+    // View all available books
     viewAvailableBooks(): Book[]{
         return this.books.filter(book => book.isAvailable);
     }
